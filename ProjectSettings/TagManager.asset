@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - AnimatedDoor
+  - SceneLoadDoor
+  - PlayersCribSpawn_Outside
+  - Camera
   layers:
   - Default
   - TransparentFX

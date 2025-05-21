@@ -1,12 +1,13 @@
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
     public GameObject Instruction;
-    private GameObject currentDoor; 
+    private GameObject currentDoor;
+    private Collider colliderObj;
+    public string scenename;
 
     void Start()
     {
@@ -15,6 +16,8 @@ public class DoorInteraction : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
+        colliderObj = collision;
+
         if (collision.transform.tag == "Player")
         {
             Instruction.SetActive(true);
@@ -43,7 +46,6 @@ public class DoorInteraction : MonoBehaviour
     {
         Instruction.SetActive(false);
 
-
         if (door.tag == "SceneLoadDoor")
         {
             SceneLoadDoor(door);
@@ -60,12 +62,11 @@ public class DoorInteraction : MonoBehaviour
 
     void SceneLoadDoor(GameObject door)
     {
-        SceneLoadData data = door.GetComponent<SceneLoadData>();
-        if (data != null)
+        if (colliderObj.CompareTag("Player"))
         {
-            data.LoadScene(); 
+            SceneManager.LoadScene(scenename);
         }
-        currentDoor = null; 
+        currentDoor = null;
     }
     void AnimateDoor(GameObject door)
     {
