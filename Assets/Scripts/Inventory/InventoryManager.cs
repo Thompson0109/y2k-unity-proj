@@ -23,4 +23,10 @@ public class InventoryManager : MonoBehaviour
             menueActivated = true;
         }
     }
+
+    public void AddItem(string itemName, int quantity, GameObject gameObject)
+    {
+        Debug.Log("itemName = " + itemName + "quantity = " + quantity + "gameObject" + gameObject);
+
+    }
 }
