@@ -24,18 +24,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, GameObject gameObject)
+    public void AddItem(string itemName, int quantity, GameObject gameObject, string itemDescription)
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
             if (itemSlot[i].isFull == false)
             {
-                itemSlot[i].AddItem(itemName, quantity, gameObject);
+                itemSlot[i].AddItem(itemName, quantity, gameObject, itemDescription);
                 return;
             }
-
         }
-        Debug.Log("itemName = " + itemName + "quantity = " + quantity + "gameObject" + gameObject);
     }
 
     public void DeselectAllSlots()

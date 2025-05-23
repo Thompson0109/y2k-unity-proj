@@ -13,6 +13,10 @@ public class Item : MonoBehaviour
     [SerializeField]
     private GameObject itemObj;
 
+    [TextArea]
+    [SerializeField]
+    private string itemDescription;
+
     private Collider colliderObj;
     private InventoryManager inventoryManager;
 
@@ -28,7 +32,7 @@ public class Item : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
-            inventoryManager.AddItem(itemName, quantity, gameObject);
+            inventoryManager.AddItem(itemName, quantity, gameObject, itemDescription);
             Destroy(gameObject);
         }
     }

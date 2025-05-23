@@ -8,9 +8,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     //=====ITEM DATA====//
     public string itemName;
     public int quantity;
-    public GameObject gameObject;
+    public GameObject gameItemObject;
     public bool isFull;
-    
+    public string itemDescription;
+
     //=====ITEM SLOT====//
     [SerializeField]
     private TMP_Text quantityText;
@@ -23,15 +24,21 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private InventoryManager inventoryManager;
 
+    //=====ITEM DESCRIPTION SLOT ====//
+    public Image itemDescriptionImage;
+    public TMP_Text itemDescriptionNameText;
+    public TMP_Text itemDescriptionText;
+
     private void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
     }
-    public void AddItem(string itemName, int quantity, GameObject gameObject)
+    public void AddItem(string itemName, int quantity, GameObject gameObject, string itemDescription)
     {
         this.itemName = itemName;
         this.quantity = quantity;
-        this.gameObject = gameObject;
+        this.gameItemObject = gameObject;
+        this.itemDescription = itemDescription;
         isFull = true;
 
         quantityText.text = quantity.ToString();
@@ -40,18 +47,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
    private void addImage() {
-        Image sourceImage = gameObject.GetComponent<Image>();
+        Image sourceImage = gameItemObject.GetComponent<Image>();
 
         if (sourceImage != null && sourceImage.sprite != null)
         {
-            // Assign the sprite from the source Image to your item slot's Image
             itemImage.sprite = sourceImage.sprite;
-            itemImage.enabled = true; // Ensure the Image is visible
+            itemImage.enabled = true; 
         }
         else
         {
-            Debug.LogWarning("Item GameObject '" + gameObject.name + "' is missing an Image component or its sprite is null.");
-            itemImage.enabled = false; // Hide the image if there's nothing to display
+            Debug.LogWarning("Item GameObject '" + gameItemObject.name + "' is missing an Image component or its sprite is null.");
+            itemImage.enabled = false; 
         }
     }
 
@@ -79,5 +85,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
    
        selectedShader.SetActive(true);
        isSelected = true;
+
+       itemDescriptionNameText.text = itemName;
+       itemDescriptionText.text = itemDescription;
+       itemDescriptionImage.sprite = itemImage.sprite;
+
     }
 }

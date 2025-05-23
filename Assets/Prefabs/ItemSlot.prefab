@@ -194,10 +194,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   quantity: 0
-  gameObject: {fileID: 0}
+  gameItemObject: {fileID: 0}
   isFull: 0
+  itemDescription: 
+  emptySprite: {fileID: 0}
   quantityText: {fileID: 0}
   itemImage: {fileID: 0}
+  selectedShader: {fileID: 0}
+  isSelected: 0
+  itemDescriptionImage: {fileID: 0}
+  itemDescriptionNameText: {fileID: 0}
+  itemDescriptionText: {fileID: 0}
 --- !u!1 &5759787654606382498
 GameObject:
   m_ObjectHideFlags: 0
