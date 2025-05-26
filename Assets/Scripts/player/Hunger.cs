@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-public class Health : MonoBehaviour
+public class Hunger : MonoBehaviour
 {
     public int hunger;
     public int maxHunger = 10;

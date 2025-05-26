@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Ramen
   m_EditorClassIdentifier: 
   itemName: Ramen
-  statToChange: 1
+  itemHungerReplenishAmount: 3
+  statToChange: 2

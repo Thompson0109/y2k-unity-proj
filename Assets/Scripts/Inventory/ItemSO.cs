@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 [CreateAssetMenu]
-public class ScriptableObjects : ScriptableObject
+public class ItemSO : ScriptableObject
 {
     public string itemName;
+    public int itemHungerReplenishAmount;
+
     public StatToChange statToChange = new StatToChange();
 
     public void UseItem()
@@ -13,7 +16,7 @@ public class ScriptableObjects : ScriptableObject
         }
         if (statToChange == StatToChange.hunger)
         {
-
+            GameObject.Find("Player").GetComponent<Hunger>().HungerModifier(itemHungerReplenishAmount);
         }
         if (statToChange == StatToChange.tiredness)
         {
