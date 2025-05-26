@@ -12,6 +12,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool isFull;
     public string itemDescription;
 
+    [SerializeField]
+    private int maxNumberOfItems;
+
     //=====ITEM SLOT====//
     [SerializeField]
     private TMP_Text quantityText;
@@ -33,17 +36,42 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
     }
-    public void AddItem(string itemName, int quantity, GameObject gameObject, string itemDescription)
+    public int AddItem(string itemName, int quantity, GameObject gameObject, string itemDescription, int maxStackableAmount)
     {
-        this.itemName = itemName;
-        this.quantity = quantity;
-        this.gameItemObject = gameObject;
-        this.itemDescription = itemDescription;
-        isFull = true;
+        //check to see if the slot is already full 
+        if (isFull)
+            return quantity;
 
-        quantityText.text = quantity.ToString();
-        quantityText.enabled = true;
+        //Update Name
+        this.itemName = itemName;
+
+        this.gameItemObject = gameObject;
+        //update Description
+        this.itemDescription = itemDescription;
+
+        //Update Image
         addImage();
+
+        //Update Quantity
+        this.quantity += quantity;
+
+        if (this.quantity >= maxNumberOfItems || this.quantity >= maxStackableAmount)
+        {
+            quantityText.text = maxNumberOfItems.ToString();
+            quantityText.enabled = true;
+            isFull = true;
+
+            //Return the leftovers
+            int extraItems = this.quantity - maxNumberOfItems;
+            this.quantity = maxNumberOfItems;
+            return extraItems;
+        }
+
+        //Update Quantity Text
+        quantityText.text = this.quantity.ToString();
+        quantityText.enabled = true;
+
+        return 0;
     }
 
    private void addImage() {

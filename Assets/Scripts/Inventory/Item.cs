@@ -13,6 +13,9 @@ public class Item : MonoBehaviour
     [SerializeField]
     private GameObject itemObj;
 
+    [SerializeField]
+    private int maxStackableAmount;
+
     [TextArea]
     [SerializeField]
     private string itemDescription;
@@ -32,8 +35,11 @@ public class Item : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
-            inventoryManager.AddItem(itemName, quantity, gameObject, itemDescription);
+            int leftOverItems = inventoryManager.AddItem(itemName, quantity, gameObject, itemDescription, maxStackableAmount);
+            if(leftOverItems <= 0)
             Destroy(gameObject);
+            else
+                quantity = leftOverItems;
         }
     }
 }
