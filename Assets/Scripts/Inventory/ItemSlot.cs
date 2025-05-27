@@ -23,6 +23,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image itemImage;
 
+    [SerializeField]
+    private Sprite originalImage;
+
     public GameObject selectedShader;  
     public bool isSelected;
 
@@ -86,7 +89,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         else
         {
             Debug.LogWarning("Item GameObject '" + gameItemObject.name + "' is missing an Image component or its sprite is null.");
-            itemImage.enabled = false; 
+            itemImage.sprite.name = "none";
         }
     }
 
@@ -136,8 +139,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private void EmptySlot()
     {
+        itemName = "";
         quantityText.enabled = false;
-        itemImage.enabled = false;
+        gameItemObject = null;
+        itemImage.sprite = originalImage;
 
         itemDescriptionNameText.text = "";
         itemDescriptionText.text = "";

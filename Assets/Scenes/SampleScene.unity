@@ -2174,27 +2174,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633904529}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &644653441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3073101160866723496, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
-  m_PrefabInstance: {fileID: 590966856472405867}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &644653448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644653441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4f66e432a446e498bf3ac7ce6e4f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hunger: 10
-  maxHunger: 10
-  slider: {fileID: 314988181}
-  hungerDecreaseInterval: 5
 --- !u!1001 &680287486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5899,6 +5878,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3073101160866723496, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108320709482444317, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 314988181}
     - target: {fileID: 6386953480121240153, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.35
@@ -5942,10 +5929,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3073101160866723496, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 644653448}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00a29ed8199d2f441a9db200f8be19a0, type: 3}
 --- !u!64 &720744489084593770
 MeshCollider:
@@ -7313,7 +7297,6 @@ MonoBehaviour:
   - {fileID: 1127152151}
   itemSOs:
   - {fileID: 11400000, guid: 8018d584e05f69d48ace8967f39e87b6, type: 2}
-  - {fileID: 0}
 --- !u!1001 &4365071710021436751
 PrefabInstance:
   m_ObjectHideFlags: 0
