@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232c72815a262bd4eaac974ae4874205, type: 3}
+  m_Name: Ramen
+  m_EditorClassIdentifier: 
+  itemName: Ramen
+  description: 'A delicous sensiating bowl of noodle soup. Just how you like it! '
+  icon: {fileID: 21300000, guid: 7c04e77a7e5b0e6428d6c8781bb6758a, type: 3}
+  prefab: {fileID: 6736807077577150166, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
+  maxStackableAmount: 5
+  statToChange: 2
+  effectAmount: 3
