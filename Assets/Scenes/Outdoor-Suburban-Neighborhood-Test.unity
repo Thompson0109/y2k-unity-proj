@@ -3530,6 +3530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruction: {fileID: 974451414}
   scenename: SampleScene
+  newPlayerPosistion: {x: -0.16745, y: 0.942, z: -16.537}
 --- !u!65 &1951247912
 BoxCollider:
   m_ObjectHideFlags: 0

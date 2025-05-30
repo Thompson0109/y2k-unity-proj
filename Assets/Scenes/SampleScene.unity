@@ -2939,6 +2939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruction: {fileID: 2590656499811376313}
   scenename: 
+  newPlayerPosistion: {x: 0, y: 0, z: 0}
 --- !u!1 &974749181
 GameObject:
   m_ObjectHideFlags: 0
@@ -8613,6 +8614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruction: {fileID: 242208863}
   scenename: Outdoor-Suburban-Neighborhood-Test
+  newPlayerPosistion: {x: 14.9, y: 1.04, z: 43.1}
 --- !u!114 &7614467472146418371
 MonoBehaviour:
   m_ObjectHideFlags: 0
