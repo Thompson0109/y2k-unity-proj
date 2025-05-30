@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86952a962124aba46872b6ea38c9b037, type: 3}
+  m_Script: {fileID: 11500000, guid: 232c72815a262bd4eaac974ae4874205, type: 3}
   m_Name: Handgun
   m_EditorClassIdentifier: 
+  itemName: Handgun
+  description: 'A small pistol capable of fiire 5.mm rounds. '
+  icon: {fileID: 0}
+  prefab: {fileID: 7471041387684216613, guid: c52b88961c732eb48beeeb75d48c3d02, type: 3}
+  maxStackableAmount: 1
+  statToChange: 0
+  effectAmount: 0
