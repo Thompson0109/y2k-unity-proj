@@ -192,20 +192,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef3ea4a6aaa07647aaa5a5062fbc493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  quantity: 0
-  gameItemObject: {fileID: 0}
-  isFull: 0
-  itemDescription: 
-  maxNumberOfItems: 10
   quantityText: {fileID: 1772879170029090170}
   itemImage: {fileID: 2006531561246849476}
-  originalImage: {fileID: 2006531561246849476}
+  emptySlotSprite: {fileID: 21300000, guid: 66d708a27254ed644bee52cbac83ecb1, type: 3}
   selectedShader: {fileID: 7324696241879551271}
-  isSelected: 0
   itemDescriptionImage: {fileID: 0}
   itemDescriptionNameText: {fileID: 0}
   itemDescriptionText: {fileID: 0}
+  itemSO: {fileID: 0}
+  quantity: 0
+  isSelected: 0
 --- !u!1 &5759787654606382498
 GameObject:
   m_ObjectHideFlags: 0

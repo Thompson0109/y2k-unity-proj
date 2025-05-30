@@ -3,7 +3,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject inventoryMenu;
-    private bool menueActivated;
+    public bool menueActivated;
     public ItemSlot[] itemSlot;
 
     public ItemSO[] itemSOs;
@@ -39,23 +39,22 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    public int AddItem(string itemName, int quantity, GameObject gameObject, string itemDescription, int maxStackableAmount)
+    public int AddItem(ItemSO item, int quantity, GameObject gameObject)
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
+            int leftover = itemSlot[i].AddItem(item, quantity, gameObject);
+            if (leftover < quantity)
             {
-                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, gameObject, itemDescription, maxStackableAmount);
+                // some amount was added to this slot
+                if (leftover > 0)
+                    return AddItem(item, leftover, gameObject);
 
-                if (leftOverItems > 0)
-                {
-                    leftOverItems = AddItem(itemName, leftOverItems, gameObject, itemDescription, maxStackableAmount);
-                }
-
-                return leftOverItems;
+                return 0;
             }
         }
-        return quantity;
+
+        return quantity; 
     }
 
     public void DeselectAllSlots()

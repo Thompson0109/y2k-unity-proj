@@ -246,11 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d08df362fe478489ec61d5f0fa3bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Ramen
+  itemSO: {fileID: 11400000, guid: 8018d584e05f69d48ace8967f39e87b6, type: 2}
   quantity: 1
-  itemObj: {fileID: 2816790265545533425}
-  maxStackableAmount: 5
-  itemDescription: A big bowl of hot noodle soup. Just how you like it!
 --- !u!222 &1104865048874560243
 CanvasRenderer:
   m_ObjectHideFlags: 0

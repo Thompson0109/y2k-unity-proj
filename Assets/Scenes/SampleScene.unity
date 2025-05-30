@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6736807077577150166, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Name
-      value: Ramen
+      value: Ramen(3)
       objectReference: {fileID: 0}
     - target: {fileID: 6835576641850595880, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Pivot.x
@@ -1077,7 +1077,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6736807077577150166, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Name
-      value: Ramen
+      value: Ramen(2)
       objectReference: {fileID: 0}
     - target: {fileID: 6835576641850595880, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Pivot.x
@@ -2184,7 +2184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6736807077577150166, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Name
-      value: Ramen
+      value: Ramen(1)
       objectReference: {fileID: 0}
     - target: {fileID: 6835576641850595880, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
       propertyPath: m_Pivot.x
@@ -7288,6 +7288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryMenu: {fileID: 3330731925723494438}
+  menueActivated: 0
   itemSlot:
   - {fileID: 1626184843}
   - {fileID: 1052951282}

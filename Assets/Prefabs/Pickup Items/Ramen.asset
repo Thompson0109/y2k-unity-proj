@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Ramen
   m_EditorClassIdentifier: 
   itemName: Ramen
-  itemHungerReplenishAmount: 3
+  description: 'A delicous sensiating bowl of noodle soup. Just how you like it! '
+  icon: {fileID: 21300000, guid: 7c04e77a7e5b0e6428d6c8781bb6758a, type: 3}
+  prefab: {fileID: 6736807077577150166, guid: c13db4ad6745e034ba67c4e6ed175ca6, type: 3}
+  maxStackableAmount: 5
   statToChange: 2
+  effectAmount: 3

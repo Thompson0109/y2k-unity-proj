@@ -1,26 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private string itemName;
+    public ItemSO itemSO;
+    public int quantity = 1;
 
-    [SerializeField]
-    private int quantity;
-
-    [SerializeField]
-    private GameObject itemObj;
-
-    [SerializeField]
-    private int maxStackableAmount;
-
-    [TextArea]
-    [SerializeField]
-    private string itemDescription;
-
-    private Collider colliderObj;
     private InventoryManager inventoryManager;
 
     void Start()
@@ -28,18 +12,15 @@ public class Item : MonoBehaviour
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
     }
 
-
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider other)
     {
-        colliderObj = collision;
+        if (!other.CompareTag("Player")) return;
 
-        if (collision.transform.tag == "Player")
-        {
-            int leftOverItems = inventoryManager.AddItem(itemName, quantity, gameObject, itemDescription, maxStackableAmount);
-            if(leftOverItems <= 0)
-            Destroy(gameObject);
-            else
-                quantity = leftOverItems;
-        }
+        int leftover = inventoryManager.AddItem(itemSO, quantity, gameObject);
+
+        if (leftover <= 0)
+            gameObject.SetActive(false);
+        else
+            quantity = leftover;
     }
 }
