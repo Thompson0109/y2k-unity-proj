@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471041387684216613}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.898, y: 0.68, z: -22.882}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -468,11 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d08df362fe478489ec61d5f0fa3bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: handgun
+  itemSO: {fileID: 11400000, guid: e8037e70f68e5534b89f20b0a428d708, type: 2}
   quantity: 1
-  itemObj: {fileID: 6159475507817726280}
-  maxStackableAmount: 1
-  itemDescription: A lightwieght basic pistol.
 --- !u!1 &7556791757169911993
 GameObject:
   m_ObjectHideFlags: 0
