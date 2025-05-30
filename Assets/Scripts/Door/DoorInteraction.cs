@@ -9,6 +9,9 @@ public class DoorInteraction : MonoBehaviour
     private Collider colliderObj;
     public string scenename;
 
+    public Vector3 newPlayerPosistion;
+    private Transform player;
+
     void Start()
     {
         Instruction.SetActive(false);
@@ -20,6 +23,7 @@ public class DoorInteraction : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
+            player = collision.transform;
             Instruction.SetActive(true);
             currentDoor = transform.parent.gameObject;
         }
@@ -64,6 +68,7 @@ public class DoorInteraction : MonoBehaviour
     {
         if (colliderObj.CompareTag("Player"))
         {
+            player.position = newPlayerPosistion;
             SceneManager.LoadScene(scenename);
         }
         currentDoor = null;
