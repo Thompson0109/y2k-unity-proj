@@ -78,7 +78,7 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    public int AddItem(ItemSO item, int quantity, GameObject gameObject)
+    public int AddItem(ItemSO item, int quantity)
     {
         // Update persistent inventory list
         InventoryItem existing = inventory.Find(i => i.itemSO == item);
@@ -97,11 +97,11 @@ public class InventoryManager : MonoBehaviour
             if (itemSlot[i] == null)
                 continue; 
 
-            int leftover = itemSlot[i].AddItem(item, quantity, gameObject);
+            int leftover = itemSlot[i].AddItem(item, quantity);
             if (leftover < quantity)
             {
                 if (leftover > 0)
-                    return AddItem(item, leftover, gameObject);
+                    return AddItem(item, leftover);
                 return 0;
             }
         }

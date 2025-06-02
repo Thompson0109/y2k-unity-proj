@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        int leftover = inventoryManager.AddItem(itemSO, quantity, gameObject);
+        int leftover = inventoryManager.AddItem(itemSO, quantity);
 
         if (leftover <= 0)
             gameObject.SetActive(false);

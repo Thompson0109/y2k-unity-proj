@@ -24,7 +24,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private InventoryManager inventoryManager;
 
-    private List<GameObject> storedWorldItems = new List<GameObject>();
     private GameObject currentGameObject;
     public bool IsFull => itemSO != null && quantity >= itemSO.maxStackableAmount;
     public bool IsEmpty => itemSO == null || quantity <= 0;
@@ -35,14 +34,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         UpdateUI();
     }
 
-    public int AddItem(ItemSO item, int amount, GameObject gameObject)
+    public int AddItem(ItemSO item, int amount)
     {
 
         if (itemSO == null)
             itemSO = item;
-
-        storedWorldItems.Add(gameObject);
-        currentGameObject = gameObject;
 
         // if the slot is not empty but contains a different item, it gets rejected
         if (itemSO != null && itemSO != item)
@@ -104,7 +100,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         if (itemSO == null || quantity <= 0)
             return;
 
-        // Get the prefab from the InventoryManager (via the ItemDatabase)
+        // gets the prefab from the InventoryManager (via the ItemDatabase)
         GameObject prefab = InventoryManager.Instance.GetPrefabForItem(itemSO);
         if (prefab == null)
         {
@@ -112,10 +108,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        // Instantiate a new object in the world
         Vector3 dropPosition = GameObject.FindWithTag("Player").transform.position + Vector3.right;
         GameObject droppedItem = Instantiate(prefab, dropPosition, Quaternion.identity);
-        droppedItem.SetActive(true);
 
         // Update inventory slot
         quantity--;
