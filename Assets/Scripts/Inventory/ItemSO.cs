@@ -8,7 +8,6 @@ public class ItemSO : ScriptableObject
     [TextArea]
     public string description;
     public Sprite icon;
-    public GameObject prefab;
     public int maxStackableAmount = 1;
 
     [Header("Effect")]

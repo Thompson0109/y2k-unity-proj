@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfafd3a652d38594f87c9724b64226ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 18f6a1b20868f2e4b81bbe308171b2c0, type: 2}
+  inventory: []
   inventoryMenu: {fileID: 4891281977111953364}
   menueActivated: 0
   itemSlot:
