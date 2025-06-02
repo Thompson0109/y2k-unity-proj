@@ -71,20 +71,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         if (isSelected)
         {
-            bool used = inventoryManager.UseItem(itemSO.name);
+            bool used = inventoryManager.UseItem(itemSO.itemName);
             if (used)
             {
                 quantity--;
-                if (storedWorldItems.Count > 0)
-                {
-                    GameObject itemToDestroy = storedWorldItems[storedWorldItems.Count - 1];
-                    storedWorldItems.RemoveAt(storedWorldItems.Count - 1);
+                inventoryManager.RemoveItem(itemSO);
 
-                    GameObject.Destroy(itemToDestroy);
-                }
-
-                if  (quantity <= 0)
-                    EmptySlot();
+                if (quantity <= 0)
+                    ClearSlot();
 
                 UpdateUI();
             }
@@ -107,24 +101,28 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private void DropItem()
     {
-        if (storedWorldItems.Count == 0)
+        if (itemSO == null || quantity <= 0)
+            return;
+
+        // Get the prefab from the InventoryManager (via the ItemDatabase)
+        GameObject prefab = InventoryManager.Instance.GetPrefabForItem(itemSO);
+        if (prefab == null)
         {
-            Debug.LogWarning("No item instance to drop!");
+            Debug.LogWarning("No prefab found for item: " + itemSO.name);
             return;
         }
 
-        GameObject itemToDrop = storedWorldItems[storedWorldItems.Count - 1];
-        storedWorldItems.RemoveAt(storedWorldItems.Count - 1);
+        // Instantiate a new object in the world
+        Vector3 dropPosition = GameObject.FindWithTag("Player").transform.position + Vector3.right;
+        GameObject droppedItem = Instantiate(prefab, dropPosition, Quaternion.identity);
+        droppedItem.SetActive(true);
 
-        Transform playerTransform = GameObject.FindWithTag("Player").transform;
-        itemToDrop.transform.position = playerTransform.position + new Vector3(1f, 0, 0);
-        itemToDrop.SetActive(true);
-
-        quantity -= 1;
-        quantityText.text = quantity.ToString();
-
+        // Update inventory slot
+        quantity--;
         if (quantity <= 0)
             EmptySlot();
+
+        UpdateUI();
     }
 
     public void EmptySlot()
@@ -136,7 +134,18 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         UpdateUI();
         ClearDescriptionUI();
     }
-
+    public void SetItem(ItemSO item, int quantity)
+    {
+        this.itemSO = item;
+        this.quantity = quantity;
+        UpdateUI();
+    }
+    public void ClearSlot()
+    {
+        this.itemSO = null;
+        this.quantity = 0;
+        UpdateUI();
+    }
     private void UpdateUI()
     {
         if (itemSO != null)
