@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
+    public FadeOutManager fadeOutManager;
+
     public GameObject Instruction;
     private GameObject currentDoor;
     private Collider colliderObj;
@@ -52,7 +55,7 @@ public class DoorInteraction : MonoBehaviour
 
         if (door.tag == "SceneLoadDoor")
         {
-            SceneLoadDoor(door);
+            StartCoroutine(SceneLoadDoor(door));
         }
         else if (door.tag == "AnimatedDoor")
         {
@@ -64,12 +67,16 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
-    void SceneLoadDoor(GameObject door)
+    IEnumerator SceneLoadDoor(GameObject door)
     {
         if (colliderObj.CompareTag("Player"))
         {
-            player.position = newPlayerPosistion;
+            yield return StartCoroutine(fadeOutManager.FadeOut());
+
             SceneManager.LoadScene(scenename);
+            player.position = newPlayerPosistion;
+
+            yield return StartCoroutine(fadeOutManager.FadeIn());
         }
         currentDoor = null;
     }
