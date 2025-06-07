@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Handgun
   description: 'A small pistol capable of fiire 5.mm rounds. '
-  icon: {fileID: 0}
-  prefab: {fileID: 7471041387684216613, guid: c52b88961c732eb48beeeb75d48c3d02, type: 3}
+  icon: {fileID: 21300000, guid: 6cea67c199e760e4bb48adbd80d9bf95, type: 3}
   maxStackableAmount: 1
   statToChange: 0
   effectAmount: 0
