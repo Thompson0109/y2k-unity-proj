@@ -32,6 +32,15 @@ public class TimeManager : MonoBehaviour
 
     private float tempSecond;
 
+    public void Start()
+    {
+        RenderSettings.skybox.SetTexture("_Texture1", skyboxNight);
+        RenderSettings.skybox.SetTexture("_Texture2", skyboxSunrise);
+        RenderSettings.skybox.SetFloat("_Blend", 0f);
+        RenderSettings.skybox.SetFloat("_Rotation1", 0f);
+        RenderSettings.skybox.SetFloat("_Rotation2", 0f);
+    }
+
     public void Update()
     {
         tempSecond += Time.deltaTime;
@@ -42,6 +51,8 @@ public class TimeManager : MonoBehaviour
             tempSecond = 0;
         }
     }
+
+
 
     private void OnMinutesChange(int value)
     {
